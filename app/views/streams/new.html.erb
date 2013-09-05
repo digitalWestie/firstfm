@@ -1,2 +1,28 @@
-<h1>Streams#new</h1>
-<p>Find me in app/views/streams/new.html.erb</p>
+<h1>New stream</h1>
+
+<%= form_for(@stream), :url => station_streams_path(@station) do |f| %>
+  <% if @stream.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@station.errors.count, "error") %> prohibited this station from being saved:</h2>
+      <ul>
+      <% @station.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>  
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', station_streams_path(@station) %>

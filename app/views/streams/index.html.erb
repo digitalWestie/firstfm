@@ -1,2 +1,21 @@
-<h1>Streams#index</h1>
-<p>Find me in app/views/streams/index.html.erb</p>
+<h1>Listing <%= @station.name %> streams</h1>
+
+<table>
+  <tr>
+    <th>Name</th>    
+    <th>Url</th>
+    <th></th>
+  </tr>
+
+<% @streams.each do |stream| %>
+  <tr>
+    <td><%= stream.name %></td>
+    <td><%= stream.url %></td>    
+    <td><%= link_to 'Destroy', station_stream_path(@station, @stream), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Station', new_station_stream_path(@station) %>
