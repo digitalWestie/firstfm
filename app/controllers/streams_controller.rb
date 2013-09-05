@@ -1,24 +1,24 @@
 class StreamsController < ApplicationController
   
-  responds_to :html
+  respond_to :html
 
   def index
     @station = Station.find(params[:station_id])
-    @streams = station.streams
+    @streams = @station.streams
   end
 
   def new
     @station = Station.find(params[:station_id])
-    @stream = @station.build
+    @stream = @station.streams.build
   end
 
   def create
     @station = Station.find(params[:station_id])
-    @stream = @station.build(params[:stream])
+    @stream = @station.streams.build(params[:stream])
     if @stream.save
-      render 'new'
-    else
       redirect_to station_streams_path(@station)
+    else
+      render 'new'
     end
   end
 
