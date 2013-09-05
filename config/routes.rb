@@ -8,6 +8,9 @@ Firstfm::Application.routes.draw do
 
   get 'latest' => 'stations#latest'
 
+  put 'favourite/:id' => 'favourites#favourite', :as => :favourite
+  put 'unfavourite/:id' => 'favourites#unfavourite', :as => :unfavourite
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
