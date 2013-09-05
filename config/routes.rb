@@ -1,5 +1,9 @@
 Firstfm::Application.routes.draw do
-  resources :stations
+  
+  resources :stations do
+    resources :streams
+  end
+
   get 'latest' => 'stations#latest'
 
 
