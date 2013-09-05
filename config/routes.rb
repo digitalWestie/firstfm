@@ -1,6 +1,6 @@
 Firstfm::Application.routes.draw do
   
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
 
   resources :stations do
     resources :streams
