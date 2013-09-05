@@ -1,5 +1,6 @@
 Firstfm::Application.routes.draw do
   resources :stations
+  get 'latest' => 'stations#latest'
 
 
   # The priority is based upon order of creation:
@@ -51,7 +52,7 @@ Firstfm::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'stations#index'
 
   # See how all your routes lay out with "rake routes"
 
