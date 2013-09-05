@@ -12,14 +12,14 @@
   </tr>
 
 <% @stations.each do |station| %>
-  <tr>
+  <tr id = "station_<%= station.id %>">
     <td><%= station.name %></td>
     <td><%= station.description %></td>
     <td><%= station.homepage_url %></td>
     <td><%= link_to 'Streams', station_streams_path(station) %></td>
     <td><%= link_to 'Show', station %></td>
     <td><%= link_to 'Edit', edit_station_path(station) %></td>
-    <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', station, method: :delete, data: { confirm: 'Are you sure?' }, :remote => true %></td>
   </tr>
 <% end %>
 </table>
