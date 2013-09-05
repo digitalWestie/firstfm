@@ -10,6 +10,15 @@ class StationsController < ApplicationController
     end
   end
 
+  def latest
+    #shows all in past day
+    @stations = Station.where(:created_at => (Time.now.beginning_of_day - 1.day)..Time.now)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @stations }
+    end
+  end
+
   # GET /stations/1
   # GET /stations/1.json
   def show
