@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <th>Name</th>    
+    <th>Url</th>
+    <th></th>
+  </tr>
+
+<% streams.each do |stream| %>
+  <tr>
+    <td><%= stream.name %></td>
+    <td><%= stream.url %></td>    
+    <td><%= link_to 'Destroy', station_stream_path(@station, stream), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>

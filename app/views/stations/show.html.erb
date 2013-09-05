@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @station.name %>
-</p>
-
+<h1>Station: <%= @station.name  %></h1>
 <p>
   <b>Description:</b>
   <%= @station.description %>
@@ -14,6 +10,11 @@
   <b>Homepage url:</b>
   <%= @station.homepage_url %>
 </p>
+
+<h2>Streams</h2>
+<%= render 'streams/streams', :streams => @station.streams %>
+
+<hr/>
 
 
 <%= link_to 'Edit', edit_station_path(@station) %> |
