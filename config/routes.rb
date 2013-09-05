@@ -1,5 +1,7 @@
 Firstfm::Application.routes.draw do
   
+  devise_for :users
+
   resources :stations do
     resources :streams
   end
