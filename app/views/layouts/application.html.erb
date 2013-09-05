@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+  <% if user_signed_in? %>
+    <p>hello <%= link_to current_user.email, edit_user_registration_path %> | <%= link_to 'sign out', destroy_user_session_path, :method => 'delete' %></p>
+  <% else %>
+    <p><%= link_to 'sign in', user_session_path %> </p>
+  <% end %>
+
   <%= image_tag 'logo.png', :style => "width:100px;" %>
+
   <hr/>
   <%= yield %>
 
